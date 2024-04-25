@@ -62,7 +62,7 @@ function billettKjop() {
                 hentAlleBilletter();
             },
             error: function(error) {
-                console.log('Lagring feilet: ', error);
+                console.log('Feil under lagring: ', error);
             }
         });
     }
@@ -96,7 +96,7 @@ function hentAlleBilletter() {
             visBillettTabell(billetter);
         },
         error: function(error) {
-            console.log('Feil ved henting av billetter: ', error);
+            console.log('Skjedde feil ved henting av billetter: ', error);
         }
     });
 }
@@ -123,18 +123,18 @@ function slettAlle() {
         url: "/slettAlleBilletter",
         type: "DELETE",
         success: function () {
-            // Rens tabellen og input-felter etter vellykket sletting
-            $("#billettTabell").html(""); // Pass på at dette IDet matcher IDet i din HTML for billett-tabellen
-            $("#valg").val("0"); // Setter tilbake til default verdi
+
+            $("#billettTabell").html("");
+            $("#valg").val("0");
             $("#antall").val("");
             $("#fnavn").val("");
             $("#enavn").val("");
             $("#epost").val("");
             $("#telefonNr").val("");
-            console.log("Alle billetter er slettet.");
+            console.log("Alle billetter er nå slettet.");
         },
         error: function (error) {
-            console.error("Feil ved sletting av alle billetter: ", error);
+            console.error("Skjedde feil ved sletting av alle billetter: ", error);
         }
     });
 }
